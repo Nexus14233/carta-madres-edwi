@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carta para Mamás - Edwin</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #fff0f5, #e6ccff);
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #800080; /* morado */
+            font-size: 3em;
+        }
+
+        .btn {
+            background-color: #ffc0cb; /* rosado */
+            color: #800000;
+            padding: 15px 30px;
+            margin: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ffb6c1;
+        }
+
+        .carta {
+            display: none;
+            margin-top: 30px;
+            border: 3px solid #daa520; /* dorado */
+            border-radius: 15px;
+            padding: 30px;
+            background-color: #fffaf0;
+            color: #4b0082;
+            font-size: 20px;
+        }
+
+        /* Corazones flotando */
+        .corazon {
+            position: absolute;
+            color: pink;
+            font-size: 24px;
+            animation: flotar 8s linear infinite;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Feliz Día de la Madre</h1>
+    <p>Con mucho amor de Edwin</p>
+
+    <button class="btn" onclick="mostrarCarta('yancy')">Carta para mamá Yancy</button>
+    <button class="btn" onclick="mostrarCarta('maria')">Carta para mamá María</button>
+
+    <div id="yancy" class="carta">
+        <h2>Para mi querida mami Yancy</h2>
+        <p>Gracias por ser la mejor madre del mundo. Tu amor, tu fuerza y tu ternura me han guiado en cada paso. Eres mi ejemplo, mi reina y mi refugio. Te amo con todo mi corazón.</p>
+        <p><strong>Con amor eterno, Edwin.</strong></p>
+    </div>
+
+    <div id="maria" class="carta">
+        <h2>Para mi segunda mamá María</h2>
+        <p>Gracias por abrir tu corazón y darme tu cariño como una verdadera madre. Eres una bendición en mi vida, una guía llena de amor. Te quiero muchísimo.</p>
+        <p><strong>Con cariño profundo, Edwin.</strong></p>
+    </div>
+
+    <!-- Música de fondo -->
+    <audio autoplay loop>
+        <source src="musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <!-- Corazones flotando -->
+    <script>
+        function mostrarCarta(nombre) {
+            document.getElementById("yancy").style.display = "none";
+            document.getElementById("maria").style.display = "none";
+            document.getElementById(nombre).style.display = "block";
+        }
+
+        // Corazones flotantes
+        setInterval(() => {
+            const corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.textContent = "♥";
+            corazon.style.left = Math.random() * window.innerWidth + "px";
+            corazon.style.top = window.innerHeight + "px";
+            document.body.appendChild(corazon);
+            setTimeout(() => corazon.remove(), 8000);
+        }, 500);
+    </script>
+</body>
+</html>
